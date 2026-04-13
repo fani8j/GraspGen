@@ -26,12 +26,13 @@ except ImportError:
 
     warnings.warn("Unable to load pointnet2_ops cpp extension. JIT Compiling.")
 
-    _ext_src_root = osp.join(osp.dirname(__file__), "_ext-src")
+    import pointnet2_ops
+
+    _ext_src_root = osp.join(osp.dirname(pointnet2_ops.__file__), "_ext-src")
     _ext_sources = glob.glob(osp.join(_ext_src_root, "src", "*.cpp")) + glob.glob(
         osp.join(_ext_src_root, "src", "*.cu")
     )
 
-    # os.environ["TORCH_CUDA_ARCH_LIST"] = "3.7+PTX;5.0;6.0;6.1;6.2;7.0;7.5"
     ops = load(
         "_ext",
         sources=_ext_sources,

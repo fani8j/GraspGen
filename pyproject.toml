@@ -26,8 +26,9 @@ classifiers = [
 
 dependencies = [
     # Core PyTorch dependencies with CUDA support
-    "torch==2.1.0",
-    "torchvision==0.16.0", 
+    "torch==2.8.0",
+    "torchvision==0.23.0",
+    "torchaudio==2.8.0",
     
     # PyTorch Geometric dependencies (installed from PyG wheel index)  
     "torch-cluster",
@@ -129,7 +130,7 @@ line_length = 88
 prerelease = "allow"
 
 # Use find-links for PyG packages (flat HTML page, not a PEP 503 index)
-find-links = ["https://data.pyg.org/whl/torch-2.1.0+cu121.html"]
+find-links = ["https://data.pyg.org/whl/torch-2.8.0+cu128.html"]
 
 # Build dependencies for packages that need special build requirements
 [tool.uv.extra-build-dependencies]
